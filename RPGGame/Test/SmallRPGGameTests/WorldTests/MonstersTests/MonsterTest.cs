@@ -1,7 +1,7 @@
 ﻿using System;
 using NSubstitute;
 using Shouldly;
-using SmallRPGGame.Character;
+using SmallRPGGame.Player;
 using SmallRPGGame.World.Monsters;
 using Xunit;
 

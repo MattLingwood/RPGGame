@@ -1,5 +1,5 @@
 ﻿using Shouldly;
-using SmallRPGGame.Character;
+using SmallRPGGame.Player;
 using Xunit;
 
 namespace SmallRPGGameTests.CharacterTests

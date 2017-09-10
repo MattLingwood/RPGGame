@@ -1,4 +1,5 @@
 ﻿using System;
+using SmallRPGGame.Player;
 
 namespace SmallRPGGame.World.Monsters
 {
@@ -13,7 +14,7 @@ namespace SmallRPGGame.World.Monsters
         public MonsterName Name { get; }
         public int Level { get; }
 
-        public bool Fight(Character.Character character)
+        public bool Fight(Character character)
         {
             return character.Level.GetLevel() <= Level;
         }

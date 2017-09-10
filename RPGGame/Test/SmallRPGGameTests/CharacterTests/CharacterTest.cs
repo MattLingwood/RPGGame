@@ -1,7 +1,7 @@
 ﻿using NSubstitute;
 using Shouldly;
-using SmallRPGGame.Character;
 using SmallRPGGame.Items;
+using SmallRPGGame.Player;
 using Xunit;
 
 namespace SmallRPGGameTests.CharacterTests

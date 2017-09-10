@@ -1,6 +1,6 @@
 ﻿using SmallRPGGame.Items;
 
-namespace SmallRPGGame.Character
+namespace SmallRPGGame.Player
 {
     public class Character
     {
