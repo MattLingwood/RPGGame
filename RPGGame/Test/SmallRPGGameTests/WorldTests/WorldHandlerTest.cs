@@ -7,7 +7,7 @@ namespace SmallRPGGameTests.WorldTests
 {
     public class WorldHandlerTest
     {
-        private WorldHandler _worldHandler;
+        private readonly WorldHandler _worldHandler;
 
         public WorldHandlerTest()
         {
@@ -20,7 +20,7 @@ namespace SmallRPGGameTests.WorldTests
             var generatedWorld = _worldHandler.GenerateWorld();
 
             var monster = generatedWorld.GetMonster();
-            monster.name.ShouldBe(MonsterName.Chicken);
+            monster.Name.ShouldBe(MonsterName.Chicken);
         }
     }
 }

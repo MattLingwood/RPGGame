@@ -1,4 +1,5 @@
-﻿using SmallRPGGame.World.Monsters;
+﻿using System;
+using SmallRPGGame.World.Monsters;
 
 namespace SmallRPGGame.World
 {
@@ -6,9 +7,9 @@ namespace SmallRPGGame.World
     {
         private readonly Monster _monster;
 
-        public World()
+        public World(Monster monster)
         {
-            _monster = new Monster(MonsterName.Chicken);
+            _monster = monster;
         }
 
         public Monster GetMonster()
