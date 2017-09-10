@@ -1,12 +1,31 @@
-﻿using SmallRPGGame.Items;
+﻿using System.Collections.Generic;
+using SmallRPGGame.Items;
 
 namespace SmallRPGGame.Character
 {
     public class Inventory
     {
-        public void UseItem(Equipment equipment)
+        public Inventory()
         {
-            throw new System.NotImplementedException();
+            Contents = new List<Equipment>();
+        }
+
+        private List<Equipment> Contents { get; }
+
+
+        public void AddItem(Equipment equipment)
+        {
+            Contents.Add(equipment);
+        }
+
+        public bool UseItem(Equipment equipment)
+        {
+            if (Contents.Contains(equipment))
+            {
+                Contents.Remove(equipment);
+                return true;
+            }
+            return false;
         }
     }
 }
