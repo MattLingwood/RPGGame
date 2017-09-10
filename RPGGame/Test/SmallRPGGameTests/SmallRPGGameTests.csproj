@@ -66,13 +66,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CharacterTests\CharacterTest.cs" />
-    <Compile Include="CharacterTests\InventoryTest.cs" />
-    <Compile Include="CharacterTests\LevelTest.cs" />
-    <Compile Include="GameRunnerTests\GameRunnerTest.cs" />
+    <Compile Include="GameHandlingTests\InputHandlerTest.cs" />
+    <Compile Include="PlayerTests\CharacterTest.cs" />
+    <Compile Include="PlayerTests\InventoryTest.cs" />
+    <Compile Include="PlayerTests\LevelTest.cs" />
+    <Compile Include="GameHandlingTests\GameRunnerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WorldTests\MonstersTests\MonsterTest.cs" />
-    <Compile Include="WorldTests\WorldHandlerTest.cs" />
+    <Compile Include="EnvironmentTests\MonstersTests\MonsterTest.cs" />
+    <Compile Include="EnvironmentTests\WorldHandlerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

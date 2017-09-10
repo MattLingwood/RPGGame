@@ -1,7 +1,7 @@
 ﻿using System;
 using SmallRPGGame.Player;
 
-namespace SmallRPGGame.World.Monsters
+namespace SmallRPGGame.Environment.Monsters
 {
     public class Monster
     {

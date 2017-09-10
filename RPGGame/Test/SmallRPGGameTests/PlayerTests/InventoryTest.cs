@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
-using Shouldly;
+﻿using Shouldly;
 using SmallRPGGame.Items;
 using SmallRPGGame.Player;
 using Xunit;
 
-namespace SmallRPGGameTests.CharacterTests
+namespace SmallRPGGameTests.PlayerTests
 {
     public class InventoryTest
     {

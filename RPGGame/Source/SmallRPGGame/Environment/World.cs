@@ -1,7 +1,6 @@
-﻿using System;
-using SmallRPGGame.World.Monsters;
+﻿using SmallRPGGame.Environment.Monsters;
 
-namespace SmallRPGGame.World
+namespace SmallRPGGame.Environment
 {
     public class World
     {

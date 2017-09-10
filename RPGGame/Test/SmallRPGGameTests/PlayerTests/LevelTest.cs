@@ -2,7 +2,7 @@
 using SmallRPGGame.Player;
 using Xunit;
 
-namespace SmallRPGGameTests.CharacterTests
+namespace SmallRPGGameTests.PlayerTests
 {
     public class LevelTest
     {

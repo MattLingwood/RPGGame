@@ -1,10 +1,10 @@
 ﻿using System;
 using Shouldly;
-using SmallRPGGame.World;
-using SmallRPGGame.World.Monsters;
+using SmallRPGGame.Environment;
+using SmallRPGGame.Environment.Monsters;
 using Xunit;
 
-namespace SmallRPGGameTests.WorldTests
+namespace SmallRPGGameTests.EnvironmentTests
 {
     public class WorldHandlerTest
     {

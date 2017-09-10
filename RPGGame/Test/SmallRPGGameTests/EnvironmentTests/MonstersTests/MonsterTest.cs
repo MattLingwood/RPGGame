@@ -1,11 +1,11 @@
 ﻿using System;
 using NSubstitute;
 using Shouldly;
+using SmallRPGGame.Environment.Monsters;
 using SmallRPGGame.Player;
-using SmallRPGGame.World.Monsters;
 using Xunit;
 
-namespace SmallRPGGameTests.WorldTests.MonstersTests
+namespace SmallRPGGameTests.EnvironmentTests.MonstersTests
 {
     public class MonsterTest
     {
