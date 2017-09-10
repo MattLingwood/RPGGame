@@ -5,10 +5,16 @@ namespace SmallRPGGame.World
 {
     public class WorldHandler
     {
+        private readonly Random _levelGenerator;
+
+        public WorldHandler(Random levelGenerator)
+        {
+            _levelGenerator = levelGenerator;
+        }
+
         public World GenerateWorld()
         {
-            var levelGenerator = new Random();
-            var monster = new Monster(MonsterName.Chicken, levelGenerator);
+            var monster = new Monster(MonsterName.Chicken, _levelGenerator);
             return new World(monster);
         }
     }

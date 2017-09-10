@@ -1,4 +1,5 @@
-﻿using Shouldly;
+﻿using System;
+using Shouldly;
 using SmallRPGGame.World;
 using SmallRPGGame.World.Monsters;
 using Xunit;
@@ -11,7 +12,7 @@ namespace SmallRPGGameTests.WorldTests
 
         public WorldHandlerTest()
         {
-            _worldHandler = new WorldHandler();
+            _worldHandler = new WorldHandler(new Random());
         }
 
         [Fact]
