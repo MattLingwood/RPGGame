@@ -13,7 +13,7 @@ namespace SmallRPGGameTests.CharacterTests
 
         public CharacterTest()
         {
-            _mockedInventory = NSubstitute.Substitute.For<Inventory>();
+            _mockedInventory = Substitute.For<Inventory>();
             _character = new Character(_mockedInventory);
         }
 

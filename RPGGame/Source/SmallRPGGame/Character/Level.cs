@@ -2,10 +2,6 @@
 {
     public class Level
     {
-        public Level()
-        {
-        }
-
         private int Experience { get; set; }
 
         public int GetLevel()
