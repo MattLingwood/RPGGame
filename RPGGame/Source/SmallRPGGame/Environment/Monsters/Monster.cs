@@ -14,9 +14,14 @@ namespace SmallRPGGame.Environment.Monsters
         public MonsterName Name { get; }
         public int Level { get; }
 
-        public FightOutcome Fight(Character character)
+        public bool Fight(Character character)
         {
-            return new FightOutcome(character.Level.GetLevel() <= Level, Level * 10);
+            if (character.Level.GetLevel() >= Level)
+            {
+                character.Level.AddExperience(Level * 10);
+                return true;
+            }
+            return false;
         }
 
         public string Describe()

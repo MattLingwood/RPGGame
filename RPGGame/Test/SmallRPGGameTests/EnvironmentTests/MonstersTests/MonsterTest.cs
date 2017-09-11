@@ -24,14 +24,14 @@ namespace SmallRPGGameTests.EnvironmentTests.MonstersTests
         public void WhenFightingAMonster_IfCharactersLevelIsHigher_MonsterIsBeaten()
         {
             var mockedRandom = Substitute.For<Random>();
+            var character = new Character(new Inventory());
             mockedRandom.Next(1, 10).Returns(1);
             var monster = new Monster(MonsterName.Chicken, mockedRandom);
-            var character = new Character(new Inventory());
+            
 
             var result = monster.Fight(character);
 
-            result.Outcome.ShouldBeTrue();
-            result.Experience.ShouldBe(10);
+            result.ShouldBeTrue();
         }
 
         [Fact]

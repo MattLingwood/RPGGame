@@ -20,9 +20,9 @@ namespace SmallRPGGame.Environment
             output.Observe(worldDescription);
         }
 
-        public FightOutcome Fight(Character character)
+        public void Fight(Character character)
         {
-            return _monster.Fight(character);
+            _monster.Fight(character);
         }
     }
 }

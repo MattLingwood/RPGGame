@@ -30,13 +30,13 @@ namespace SmallRPGGameTests.EnvironmentTests
         {
             var mockedRandom = Substitute.For<Random>();
             mockedRandom.Next(1, 10).Returns(1);
-            var monster = new Monster(MonsterName.Chicken, mockedRandom);
-            var world = new World(monster);
+            var mockedMonster = Substitute.For<Monster>(MonsterName.Chicken, mockedRandom);
+            var world = new World(mockedMonster);
             var character = new Character(new Inventory());
 
-            var results = world.Fight(character);
+            world.Fight(character);
 
-            results.Outcome.ShouldBeTrue();
+            mockedMonster.Received(1).Fight(character);
         }
     }
 }
