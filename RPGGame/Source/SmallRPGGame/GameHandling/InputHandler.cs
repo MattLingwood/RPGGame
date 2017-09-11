@@ -5,7 +5,7 @@ namespace SmallRPGGame.GameHandling
     public class InputHandler : IInputHandler
     {
         private IGameRunner _currentGame;
-        private IOutputHandler _outputHandler;
+        private readonly IOutputHandler _outputHandler;
 
         public InputHandler(IOutputHandler outputHandler)
         {

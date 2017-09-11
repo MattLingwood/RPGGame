@@ -36,6 +36,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameHandling\Interfaces\ConsoleWrapper.cs" />
+    <Compile Include="GameHandling\Interfaces\IConsole.cs" />
     <Compile Include="GameHandling\Interfaces\IInputHandler.cs" />
     <Compile Include="GameHandling\Interfaces\IGameRunner.cs" />
     <Compile Include="GameHandling\InputHandler.cs" />
