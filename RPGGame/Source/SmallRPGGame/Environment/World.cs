@@ -11,18 +11,22 @@ namespace SmallRPGGame.Environment
             _monster = monster;
         }
 
-        private readonly Monster _monster;
+        private Monster _monster;
 
         public void Observe(IOutputHandler output)
         {
-            var worldDescription = $"A world where there is {_monster.Describe()}";
+            var monsterDescription = _monster == null ? "nothing" : _monster.Describe();
+            var worldDescription = $"A world where there is {monsterDescription}";
 
             output.Observe(worldDescription);
         }
 
         public void Fight(Character character)
         {
-            _monster.Fight(character);
+            if (_monster.Fight(character))
+            {
+                _monster = null;
+            }
         }
     }
 }
