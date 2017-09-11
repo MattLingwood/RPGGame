@@ -40,10 +40,10 @@
     <Compile Include="Console\ConsoleWrapper.cs" />
     <Compile Include="Console\Interfaces\IConsole.cs" />
     <Compile Include="GameHandling\Exceptions\GameNotStartedException.cs" />
-    <Compile Include="GameHandling\InputParser.cs" />
+    <Compile Include="GameHandling\Input\InputParser.cs" />
     <Compile Include="GameHandling\Interfaces\IInputHandler.cs" />
     <Compile Include="GameHandling\Interfaces\IGameRunner.cs" />
-    <Compile Include="GameHandling\InputHandler.cs" />
+    <Compile Include="GameHandling\Input\InputHandler.cs" />
     <Compile Include="GameHandling\Interfaces\IOutputHandler.cs" />
     <Compile Include="GameHandling\OutputHandler.cs" />
     <Compile Include="Player\Character.cs" />

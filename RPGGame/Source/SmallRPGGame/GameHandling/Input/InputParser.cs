@@ -1,6 +1,6 @@
 ﻿using SmallRPGGame.GameHandling.Actions;
 
-namespace SmallRPGGame.GameHandling
+namespace SmallRPGGame.GameHandling.Input
 {
     public class InputParser
     {
