@@ -1,7 +1,6 @@
 ﻿using SmallRPGGame.Console;
 using SmallRPGGame.GameHandling;
 using SmallRPGGame.GameHandling.Input;
-using SmallRPGGame.GameHandling.Interfaces;
 
 namespace SmallRPGGame
 {

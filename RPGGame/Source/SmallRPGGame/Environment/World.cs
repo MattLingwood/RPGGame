@@ -19,7 +19,7 @@ namespace SmallRPGGame.Environment
 
         public void Observe(IOutputHandler output)
         {
-            var worldDescription = $"A world where this is a {_monster.Name.ToString()}";
+            var worldDescription = $"A world where there is {_monster.Describe()}";
 
             output.Observe(worldDescription);
         }

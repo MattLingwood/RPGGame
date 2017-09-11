@@ -1,7 +1,6 @@
 ﻿using NSubstitute;
 using SmallRPGGame.Console.Interfaces;
 using SmallRPGGame.GameHandling;
-using SmallRPGGame.GameHandling.Interfaces;
 using Xunit;
 
 namespace SmallRPGGameTests.GameHandlingTests

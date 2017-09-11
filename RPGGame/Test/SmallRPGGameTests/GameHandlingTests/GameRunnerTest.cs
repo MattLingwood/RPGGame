@@ -12,7 +12,7 @@ namespace SmallRPGGameTests.GameHandlingTests
     {
         private readonly GameRunner _gameRunner;
         private readonly IInputHandler _mockedInputHandler;
-        private IOutputHandler _mockedOutputHandler;
+        private readonly IOutputHandler _mockedOutputHandler;
 
         public GameRunnerTest()
         {
@@ -48,7 +48,7 @@ namespace SmallRPGGameTests.GameHandlingTests
 
             _gameRunner.Action(GameAction.Observe);
 
-            _mockedOutputHandler.Received(1).Observe("A world where this is a Chicken");
+            _mockedOutputHandler.Received(1).Observe(Arg.Is<string>(x => x.StartsWith("A world where there is a level")));
         }
     }
 }
