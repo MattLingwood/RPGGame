@@ -5,6 +5,7 @@
         Forward,
         Unknown,
         Back,
-        Observe
+        Observe,
+        Fight
     }
 }

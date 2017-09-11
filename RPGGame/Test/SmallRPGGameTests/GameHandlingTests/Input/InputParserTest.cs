@@ -13,6 +13,7 @@ namespace SmallRPGGameTests.GameHandlingTests.Input
         [InlineData("forward", GameAction.Forward)]
         [InlineData("Back", GameAction.Back)]
         [InlineData("Observe", GameAction.Observe)]
+        [InlineData("Fight", GameAction.Fight)]
         [InlineData("Trash", GameAction.Unknown)]
         public void WhenParsingGivenString_ReturnsExpectedGameAction(string givenString, GameAction expectedGameAction)
         {

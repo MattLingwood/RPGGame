@@ -16,6 +16,8 @@ namespace SmallRPGGame.GameHandling.Input
                     return GameAction.Back;
                 case "observe":
                     return GameAction.Observe;
+                case "fight":
+                    return GameAction.Fight;
                 default:
                     return GameAction.Unknown;
             }
