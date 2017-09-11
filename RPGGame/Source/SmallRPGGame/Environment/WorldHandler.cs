@@ -14,7 +14,7 @@ namespace SmallRPGGame.Environment
 
         public World GenerateWorld()
         {
-            var monsterNameIndex = _levelGenerator.Next(0, 5).ToString();
+            var monsterNameIndex = _levelGenerator.Next(Enum.GetNames(typeof(MonsterName)).Length).ToString();
             var monsterName = (MonsterName) Enum.Parse(typeof(MonsterName), monsterNameIndex);
             var monster = new Monster(monsterName, _levelGenerator);
             return new World(monster);

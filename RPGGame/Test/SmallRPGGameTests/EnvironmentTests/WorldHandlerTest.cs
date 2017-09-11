@@ -1,6 +1,5 @@
 ﻿using System;
 using NSubstitute;
-using Shouldly;
 using SmallRPGGame.Environment;
 using SmallRPGGame.Environment.Monsters;
 using SmallRPGGame.GameHandling.Interfaces;
@@ -29,7 +28,8 @@ namespace SmallRPGGameTests.EnvironmentTests
         [InlineData(4, 6, "Duck")]
         public void WhenANewWorldIsCreated_ANewRandomMonsterIsPlacedInside_WithARandomLevel(int animal, int level, string expectedMonster)
         {
-            _mockedLevelGenerator.Next(0, 5).Returns(animal);
+            var countOfMonsterNames = Enum.GetNames(typeof(MonsterName)).Length;
+            _mockedLevelGenerator.Next(countOfMonsterNames).Returns(animal);
             _mockedLevelGenerator.Next(1, 10).Returns(level);
             var generatedWorld = _worldHandler.GenerateWorld();
 
