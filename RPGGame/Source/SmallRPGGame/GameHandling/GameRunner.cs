@@ -16,7 +16,7 @@ namespace SmallRPGGame.GameHandling
         }
 
         private readonly IInputHandler _inputHandler;
-        private IOutputHandler _outputHandler;
+        private readonly IOutputHandler _outputHandler;
         private WorldHandler _worldHandler;
         private Character _character;
         private World _currentWorld;
