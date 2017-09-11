@@ -13,7 +13,7 @@ namespace SmallRPGGame
 
             var outputHandler = new OutputHandler(consoleWrapper);
             var inputHandler = new InputHandler(outputHandler, consoleWrapper);
-            var gameRunner = new GameRunner(inputHandler);
+            var gameRunner = new GameRunner(inputHandler, outputHandler);
 
             gameRunner.InitialiseGame();
         }

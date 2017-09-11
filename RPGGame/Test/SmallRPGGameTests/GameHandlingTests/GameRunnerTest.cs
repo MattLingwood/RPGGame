@@ -10,13 +10,15 @@ namespace SmallRPGGameTests.GameHandlingTests
 {
     public class GameRunnerTest
     {
-        private GameRunner _gameRunner;
-        private IInputHandler _mockedInputHandler;
+        private readonly GameRunner _gameRunner;
+        private readonly IInputHandler _mockedInputHandler;
+        private IOutputHandler _mockedOutputHandler;
 
         public GameRunnerTest()
         {
+            _mockedOutputHandler = Substitute.For<IOutputHandler>();
             _mockedInputHandler = Substitute.For<IInputHandler>();
-            _gameRunner = new GameRunner(_mockedInputHandler);
+            _gameRunner = new GameRunner(_mockedInputHandler, _mockedOutputHandler);
 
         }
 
@@ -37,6 +39,16 @@ namespace SmallRPGGameTests.GameHandlingTests
             var capturedException = Should.Throw<NoWorldToMoveToException>(() =>_gameRunner.Action(GameAction.Back));
 
             capturedException.Message.ShouldBe("There must be a previous world to move to");
+        }
+
+        [Fact]
+        public void WhenUserObservesTheWorldTheyAreIn_ItGetsPrintedToTheConsole()
+        {
+            _gameRunner.InitialiseGame();
+
+            _gameRunner.Action(GameAction.Observe);
+
+            _mockedOutputHandler.Received(1).Observe("A world where this is a Chicken");
         }
     }
 }

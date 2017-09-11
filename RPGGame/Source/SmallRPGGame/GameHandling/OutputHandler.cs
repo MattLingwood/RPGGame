@@ -25,5 +25,12 @@ namespace SmallRPGGame.GameHandling
 
             _consoleOutput.Write(nextActionText);
         }
+
+        public void Observe(string worldDescription)
+        {
+            var observeText = $"You are currently in: {worldDescription}";
+
+            _consoleOutput.Write(observeText);
+        }
     }
 }

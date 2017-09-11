@@ -9,12 +9,14 @@ namespace SmallRPGGame.GameHandling
 {
     public class GameRunner : IGameRunner
     {
-        public GameRunner(IInputHandler inputHandler)
+        public GameRunner(IInputHandler inputHandler, IOutputHandler outputHandler)
         {
             _inputHandler = inputHandler;
+            _outputHandler = outputHandler;
         }
 
         private readonly IInputHandler _inputHandler;
+        private IOutputHandler _outputHandler;
         private WorldHandler _worldHandler;
         private Character _character;
         private World _currentWorld;
@@ -40,6 +42,9 @@ namespace SmallRPGGame.GameHandling
                     break;
                 case GameAction.Back:
                     SwitchWorlds();
+                    break;
+                case GameAction.Observe:
+                    _currentWorld.Observe(_outputHandler);
                     break;
             }
             _inputHandler.Next();

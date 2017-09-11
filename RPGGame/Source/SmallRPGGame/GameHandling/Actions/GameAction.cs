@@ -4,6 +4,7 @@
     {
         Forward,
         Unknown,
-        Back
+        Back,
+        Observe
     }
 }
