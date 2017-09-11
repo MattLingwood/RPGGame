@@ -12,11 +12,6 @@ namespace SmallRPGGame.Environment
 
         private readonly Monster _monster;
 
-        public Monster GetMonster()
-        {
-            return _monster;
-        }
-
         public void Observe(IOutputHandler output)
         {
             var worldDescription = $"A world where there is {_monster.Describe()}";
