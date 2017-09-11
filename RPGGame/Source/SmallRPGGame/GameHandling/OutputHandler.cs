@@ -1,10 +1,11 @@
-﻿using SmallRPGGame.GameHandling.Interfaces;
+﻿using SmallRPGGame.Console.Interfaces;
+using SmallRPGGame.GameHandling.Interfaces;
 
 namespace SmallRPGGame.GameHandling
 {
     public class OutputHandler : IOutputHandler
     {
-        private IConsole _consoleOutput;
+        private readonly IConsole _consoleOutput;
 
         public OutputHandler(IConsole consoleOutput)
         {
@@ -16,6 +17,13 @@ namespace SmallRPGGame.GameHandling
             var welcomeText = "Welcome to Fantasy Land\n" +
                               "Now go kill some Monsters!";
             _consoleOutput.Write(welcomeText);
+        }
+
+        public void NextAction()
+        {
+            var nextActionText = "What would you like to do next?: ";
+
+            _consoleOutput.Write(nextActionText);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using SmallRPGGame.Environment;
+using SmallRPGGame.GameHandling.Actions;
 using SmallRPGGame.GameHandling.Interfaces;
 using SmallRPGGame.Player;
 
@@ -27,7 +28,7 @@ namespace SmallRPGGame.GameHandling
             _inputHandler.Start(this);
         }
 
-        public void Action()
+        public void Action(GameAction action)
         {
             _inputHandler.Next();
         }

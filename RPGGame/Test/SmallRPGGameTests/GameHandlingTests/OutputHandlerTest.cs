@@ -1,4 +1,5 @@
 ﻿using NSubstitute;
+using SmallRPGGame.Console.Interfaces;
 using SmallRPGGame.GameHandling;
 using SmallRPGGame.GameHandling.Interfaces;
 using Xunit;
@@ -25,6 +26,16 @@ namespace SmallRPGGameTests.GameHandlingTests
             _outputHandler.Welcome();
 
             _mockedConsole.Received(1).Write(openingMessage);
+        }
+
+        [Fact]
+        public void WhenNextActionIsCalled_TheNextActionQuestionIsPrintedToTheConsole()
+        {
+            var nextActionText = "What would you like to do next?: ";
+
+            _outputHandler.NextAction();
+
+            _mockedConsole.Received(1).Write(nextActionText);
         }
     }
 }

@@ -3,5 +3,7 @@
     public interface IOutputHandler
     {
         void Welcome();
+
+        void NextAction();
     }
 }
