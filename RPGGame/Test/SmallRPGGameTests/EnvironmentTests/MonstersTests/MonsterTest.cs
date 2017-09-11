@@ -32,5 +32,17 @@ namespace SmallRPGGameTests.EnvironmentTests.MonstersTests
 
             outcome.ShouldBeTrue();
         }
+
+        [Fact]
+        public void WhenDescribeIsCalled_ADescriptionOfTheMonsterIsReturned()
+        {
+            var mockedRandom = Substitute.For<Random>();
+            mockedRandom.Next(1, 10).Returns(1);
+            var monster = new Monster(MonsterName.Chicken, mockedRandom);
+
+            var description = monster.Describe();
+
+            description.ShouldBe("a level 1 Chicken");
+        }
     }
 }

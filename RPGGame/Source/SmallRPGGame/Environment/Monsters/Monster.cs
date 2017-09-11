@@ -18,5 +18,10 @@ namespace SmallRPGGame.Environment.Monsters
         {
             return character.Level.GetLevel() <= Level;
         }
+
+        public string Describe()
+        {
+            return $"a level {Level} {Name.ToString()}";
+        }
     }
 }
