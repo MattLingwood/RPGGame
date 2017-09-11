@@ -6,7 +6,8 @@ namespace SmallRPGGame
     {
         public static void Main(string[] args)
         {
-            var inputHandler = new InputHandler();
+            var outputHandler = new OutputHandler();
+            var inputHandler = new InputHandler(outputHandler);
 
             var gameRunner = new GameRunner(inputHandler);
 

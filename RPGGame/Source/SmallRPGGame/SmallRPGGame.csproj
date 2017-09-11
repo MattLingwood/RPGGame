@@ -36,7 +36,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameHandling\Interfaces\IInputHandler.cs" />
+    <Compile Include="GameHandling\Interfaces\IGameRunner.cs" />
     <Compile Include="GameHandling\InputHandler.cs" />
+    <Compile Include="GameHandling\Interfaces\IOutputHandler.cs" />
+    <Compile Include="GameHandling\OutputHandler.cs" />
     <Compile Include="Player\Character.cs" />
     <Compile Include="Player\Inventory.cs" />
     <Compile Include="Player\Level.cs" />

@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameHandlingTests\InputHandlerTest.cs" />
+    <Compile Include="GameHandlingTests\OutputHandlerTest.cs" />
     <Compile Include="PlayerTests\CharacterTest.cs" />
     <Compile Include="PlayerTests\InventoryTest.cs" />
     <Compile Include="PlayerTests\LevelTest.cs" />

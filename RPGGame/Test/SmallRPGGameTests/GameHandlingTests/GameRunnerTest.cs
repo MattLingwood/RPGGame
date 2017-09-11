@@ -1,5 +1,6 @@
 ﻿using NSubstitute;
 using SmallRPGGame.GameHandling;
+using SmallRPGGame.GameHandling.Interfaces;
 using Xunit;
 
 namespace SmallRPGGameTests.GameHandlingTests
@@ -10,7 +11,7 @@ namespace SmallRPGGameTests.GameHandlingTests
         [Fact]
         public void WhenTheUserStartsTheGame_GameRunnerSetsUpTheEnvironment()
         {
-            var mockedInputHandler = Substitute.For<InputHandler>();
+            var mockedInputHandler = Substitute.For<IInputHandler>();
             var gameRunner = new GameRunner(mockedInputHandler);
 
             gameRunner.InitialiseGame();

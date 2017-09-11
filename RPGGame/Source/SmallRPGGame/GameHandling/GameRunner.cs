@@ -1,12 +1,13 @@
 ﻿using System;
 using SmallRPGGame.Environment;
+using SmallRPGGame.GameHandling.Interfaces;
 using SmallRPGGame.Player;
 
 namespace SmallRPGGame.GameHandling
 {
-    public class GameRunner
+    public class GameRunner : IGameRunner
     {
-        public GameRunner(InputHandler inputHandler)
+        public GameRunner(IInputHandler inputHandler)
         {
             _inputHandler = inputHandler;
         }
@@ -14,7 +15,7 @@ namespace SmallRPGGame.GameHandling
         private WorldHandler _worldHandler;
         private Character _character;
         private World _currentWorld;
-        private readonly InputHandler _inputHandler;
+        private readonly IInputHandler _inputHandler;
 
         public void InitialiseGame()
         {
