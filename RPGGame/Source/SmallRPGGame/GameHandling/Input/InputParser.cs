@@ -7,7 +7,16 @@ namespace SmallRPGGame.GameHandling.Input
         public GameAction ParseUserInput(string userInput)
         {
             var userInputLower = userInput.ToLower();
-            return userInputLower.Equals("forward") ? GameAction.Forward : GameAction.Unknown;
+
+            switch (userInputLower)
+            {
+                case "forward":
+                    return GameAction.Forward;
+                case "back":
+                    return GameAction.Back;
+                default:
+                    return GameAction.Unknown;
+            }
         }
     }
 }

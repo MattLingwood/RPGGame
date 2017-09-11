@@ -25,15 +25,26 @@ namespace SmallRPGGameTests.GameHandlingTests.Input
         }
 
         [Fact]
-        public void WhenStartIsCalled_ParsesUserInput_AndPassesToGameRunner()
+        public void WhenStartIsCalled_CallsWelcomeText_AndThenCallsNextAction()
         {
-            _mockedConsole.ReadLine().Returns("Forward");
-
             _inputHandler.Start(_mockedGameRunner);
 
             _mockedOutputHandler.Received(1).Welcome();
             _mockedOutputHandler.Received(1).NextAction();
+        }
+
+        [Fact]
+        public void WhenNextIsCalledAfterStart_ParsesUserInput_AndPassesToGameRunner()
+        {
+            _mockedConsole.ReadLine().Returns("Forward", "Back");
+            _inputHandler.Start(_mockedGameRunner);
+
+            _inputHandler.Next();
+
+            _mockedOutputHandler.Received(1).Welcome();
+            _mockedOutputHandler.Received(2).NextAction();
             _mockedGameRunner.Received(1).Action(GameAction.Forward);
+            _mockedGameRunner.Received(1).Action(GameAction.Back);
         }
 
         [Fact]

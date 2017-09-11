@@ -11,6 +11,7 @@ namespace SmallRPGGameTests.GameHandlingTests.Input
         [InlineData("Forward", GameAction.Forward)]
         [InlineData("FORWARD", GameAction.Forward)]
         [InlineData("forward", GameAction.Forward)]
+        [InlineData("Back", GameAction.Back)]
         [InlineData("Trash", GameAction.Unknown)]
         public void WhenParsingGivenString_ReturnsExpectedGameAction(string givenString, GameAction expectedGameAction)
         {
