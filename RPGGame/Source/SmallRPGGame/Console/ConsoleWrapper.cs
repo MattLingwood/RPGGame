@@ -6,7 +6,7 @@ namespace SmallRPGGame.Console
     {
         public void Write(string text)
         {
-            System.Console.Write(text + "\n");
+            System.Console.Write(text + "\n\n");
         }
 
         public string ReadLine()
