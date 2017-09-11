@@ -18,7 +18,7 @@ namespace SmallRPGGame.Environment.Monsters
         {
             if (character.Level.GetLevel() >= Level)
             {
-                character.Level.AddExperience(Level * 10);
+                character.Level.AddExperience(100);
                 return true;
             }
             return false;
