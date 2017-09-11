@@ -39,5 +39,19 @@ namespace SmallRPGGameTests.GameHandlingTests
 
             capturedException.Message.ShouldBe("There must be a previous world to move to");
         }
+
+        [Theory]
+        [InlineData(GameAction.Fight)]
+        [InlineData(GameAction.Observe)]
+        [InlineData(GameAction.Forward)]
+        public void WhenTheUserMovesWorld_TheWorldIsAutomaticallyObserved(GameAction givenAction)
+        {
+            _gameRunner.InitialiseGame();
+
+            _gameRunner.Action(givenAction);
+
+            _mockedInputHandler.Received(1).Start(_gameRunner);
+            _mockedOutputHandler.Received(1).Observe(Arg.Is<string>(x => x.StartsWith("A world where there is")));
+        }
     }
 }

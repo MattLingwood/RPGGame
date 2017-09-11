@@ -28,7 +28,7 @@ namespace SmallRPGGame.GameHandling
             _character = new Character(new Inventory());
 
             _currentWorld = _worldHandler.GenerateWorld();
-
+            
             _inputHandler.Start(this);
         }
 
@@ -43,13 +43,13 @@ namespace SmallRPGGame.GameHandling
                 case GameAction.Back:
                     SwitchWorlds();
                     break;
-                case GameAction.Observe:
-                    _currentWorld.Observe(_outputHandler);
-                    break;
                 case GameAction.Fight:
                     _currentWorld.Fight(_character);
                     break;
+                case GameAction.Observe:
+                    break;
             }
+            _currentWorld.Observe(_outputHandler);
             _inputHandler.Next();
         }
 
