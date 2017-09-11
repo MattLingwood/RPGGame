@@ -36,6 +36,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Environment\Monsters\FightOutcome.cs" />
     <Compile Include="GameHandling\Actions\GameAction.cs" />
     <Compile Include="Console\ConsoleWrapper.cs" />
     <Compile Include="Console\Interfaces\IConsole.cs" />

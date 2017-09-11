@@ -25,7 +25,6 @@ namespace SmallRPGGameTests.GameHandlingTests
         [Fact]
         public void WhenTheUserStartsTheGame_GameRunnerSetsUpTheEnvironment()
         {
-            
             _gameRunner.InitialiseGame();
 
             _mockedInputHandler.Received(1).Start(_gameRunner);

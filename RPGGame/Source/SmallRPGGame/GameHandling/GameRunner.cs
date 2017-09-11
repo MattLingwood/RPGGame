@@ -46,6 +46,9 @@ namespace SmallRPGGame.GameHandling
                 case GameAction.Observe:
                     _currentWorld.Observe(_outputHandler);
                     break;
+                case GameAction.Fight:
+                    _currentWorld.Fight(_character);
+                    break;
             }
             _inputHandler.Next();
         }

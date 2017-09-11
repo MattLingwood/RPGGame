@@ -28,9 +28,10 @@ namespace SmallRPGGameTests.EnvironmentTests.MonstersTests
             var monster = new Monster(MonsterName.Chicken, mockedRandom);
             var character = new Character(new Inventory());
 
-            var outcome = monster.Fight(character);
+            var result = monster.Fight(character);
 
-            outcome.ShouldBeTrue();
+            result.Outcome.ShouldBeTrue();
+            result.Experience.ShouldBe(10);
         }
 
         [Fact]
