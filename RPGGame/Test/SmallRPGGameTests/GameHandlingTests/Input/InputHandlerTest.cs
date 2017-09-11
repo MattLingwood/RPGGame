@@ -1,15 +1,13 @@
-﻿using System;
-using NSubstitute;
+﻿using NSubstitute;
 using Shouldly;
 using SmallRPGGame.Console.Interfaces;
-using SmallRPGGame.GameHandling;
 using SmallRPGGame.GameHandling.Actions;
 using SmallRPGGame.GameHandling.Exceptions;
 using SmallRPGGame.GameHandling.Input;
 using SmallRPGGame.GameHandling.Interfaces;
 using Xunit;
 
-namespace SmallRPGGameTests.GameHandlingTests
+namespace SmallRPGGameTests.GameHandlingTests.Input
 {
     public class InputHandlerTest
     {
