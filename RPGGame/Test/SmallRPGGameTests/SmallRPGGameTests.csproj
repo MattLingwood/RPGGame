@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EnvironmentTests\WorldTest.cs" />
     <Compile Include="GameHandlingTests\Input\InputHandlerTest.cs" />
     <Compile Include="GameHandlingTests\Input\InputParserTest.cs" />
     <Compile Include="GameHandlingTests\OutputHandlerTest.cs" />

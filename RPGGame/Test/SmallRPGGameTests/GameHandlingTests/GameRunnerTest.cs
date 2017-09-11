@@ -40,15 +40,5 @@ namespace SmallRPGGameTests.GameHandlingTests
 
             capturedException.Message.ShouldBe("There must be a previous world to move to");
         }
-
-        [Fact]
-        public void WhenUserObservesTheWorldTheyAreIn_ItGetsPrintedToTheConsole()
-        {
-            _gameRunner.InitialiseGame();
-
-            _gameRunner.Action(GameAction.Observe);
-
-            _mockedOutputHandler.Received(1).Observe(Arg.Is<string>(x => x.StartsWith("A world where there is a level")));
-        }
     }
 }
