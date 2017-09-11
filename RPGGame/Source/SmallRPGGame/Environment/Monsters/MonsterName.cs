@@ -2,6 +2,10 @@
 {
     public enum MonsterName
     {
-        Chicken
+        Chicken = 0,
+        Pig = 1,
+        Cow = 2,
+        Bird = 3,
+        Duck = 4
     }
 }
