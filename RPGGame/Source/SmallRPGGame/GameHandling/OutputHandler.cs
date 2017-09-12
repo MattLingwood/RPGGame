@@ -15,7 +15,7 @@ namespace SmallRPGGame.GameHandling
         public void Welcome()
         {
             var welcomeText = "Welcome to Fantasy Land\n" +
-                              "Now go kill some Monsters!";
+                              "Now go kill some Monsters!\n";
             _consoleOutput.Write(welcomeText);
         }
 
@@ -35,7 +35,7 @@ namespace SmallRPGGame.GameHandling
 
         public void Observe(string worldDescription)
         {
-            var observeText = $"You are currently in: {worldDescription}";
+            var observeText = $"You are currently in: {worldDescription}\n";
 
             _consoleOutput.Write(observeText);
         }

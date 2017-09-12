@@ -1,5 +1,8 @@
-﻿using NSubstitute;
+﻿using System;
+using NSubstitute;
 using SmallRPGGame.Console.Interfaces;
+using SmallRPGGame.Environment;
+using SmallRPGGame.Environment.Monsters;
 using SmallRPGGame.GameHandling;
 using Xunit;
 
@@ -20,7 +23,7 @@ namespace SmallRPGGameTests.GameHandlingTests
         public void WhenWelcomeIsCalled_TheOpeningMessageIsPrintedToTheConsole()
         {
             var openingMessage = "Welcome to Fantasy Land\n" +
-                                 "Now go kill some Monsters!";
+                                 "Now go kill some Monsters!\n";
 
             _outputHandler.Welcome();
 
@@ -35,6 +38,17 @@ namespace SmallRPGGameTests.GameHandlingTests
             _outputHandler.NextAction();
 
             _mockedConsole.Received(1).Write(nextActionText);
+        }
+
+        [Fact]
+        public void WhenObserveIsCalled_TheWorldObservationIsPrintedToTheConsole()
+        {
+            var worldObservation = "World Observation";
+            var observeText = $"You are currently in: {worldObservation}\n";
+
+            _outputHandler.Observe(worldObservation);
+
+            _mockedConsole.Received(1).Write(observeText);
         }
 
         [Fact]
