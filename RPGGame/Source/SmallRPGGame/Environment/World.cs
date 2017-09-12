@@ -1,5 +1,4 @@
 ﻿using SmallRPGGame.Environment.Monsters;
-using SmallRPGGame.GameHandling.Interfaces;
 using SmallRPGGame.Player;
 
 namespace SmallRPGGame.Environment

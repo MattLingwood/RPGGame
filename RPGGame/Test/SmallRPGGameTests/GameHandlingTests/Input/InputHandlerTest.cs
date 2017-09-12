@@ -2,7 +2,6 @@
 using Shouldly;
 using SmallRPGGame.Console.Interfaces;
 using SmallRPGGame.GameHandling.Actions;
-using SmallRPGGame.GameHandling.Exceptions;
 using SmallRPGGame.GameHandling.Input;
 using SmallRPGGame.GameHandling.Interfaces;
 using Xunit;

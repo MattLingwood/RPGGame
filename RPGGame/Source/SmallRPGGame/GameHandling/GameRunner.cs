@@ -2,7 +2,6 @@
 using SmallRPGGame.Environment;
 using SmallRPGGame.GameHandling.Actions;
 using SmallRPGGame.GameHandling.Exceptions;
-using SmallRPGGame.GameHandling.Input;
 using SmallRPGGame.GameHandling.Interfaces;
 using SmallRPGGame.Player;
 
