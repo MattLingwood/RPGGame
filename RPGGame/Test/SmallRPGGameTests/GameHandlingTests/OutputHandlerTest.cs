@@ -1,8 +1,5 @@
-﻿using System;
-using NSubstitute;
+﻿using NSubstitute;
 using SmallRPGGame.Console.Interfaces;
-using SmallRPGGame.Environment;
-using SmallRPGGame.Environment.Monsters;
 using SmallRPGGame.GameHandling;
 using Xunit;
 
@@ -59,6 +56,16 @@ namespace SmallRPGGameTests.GameHandlingTests
             _outputHandler.Exit();
 
             _mockedConsole.Received(1).Write(nextActionText);
+        }
+
+        [Theory]
+        [InlineData(true, "You have won the fight and cleared the monster from this world")]
+        [InlineData(false, "You have lost the fight")]
+        public void WhenFightIsCalledWithGivenOutcome_TheExpectedTextIsPrintedToTheConsole(bool fightOutcome,string expectedOutput)
+        {
+            _outputHandler.Fight(fightOutcome);
+
+            _mockedConsole.Received(1).Write(expectedOutput);
         }
     }
 }

@@ -42,7 +42,11 @@ namespace SmallRPGGame.GameHandling
 
         public void Fight(bool fightOutcome)
         {
-            throw new System.NotImplementedException();
+            var fightOutcomeText = fightOutcome 
+                ? "You have won the fight and cleared the monster from this world" 
+                : "You have lost the fight";
+
+            _consoleOutput.Write(fightOutcomeText);
         }
     }
 }
