@@ -23,7 +23,7 @@ namespace SmallRPGGame.Environment
 
         public void Fight(Character character)
         {
-            if (_monster.Fight(character))
+            if (_monster != null && _monster.Fight(character))
             {
                 _monster = null;
             }

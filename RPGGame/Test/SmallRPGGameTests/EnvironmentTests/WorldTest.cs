@@ -1,5 +1,6 @@
 ﻿using System;
 using NSubstitute;
+using Shouldly;
 using SmallRPGGame.Environment;
 using SmallRPGGame.Environment.Monsters;
 using SmallRPGGame.GameHandling.Interfaces;
@@ -52,6 +53,15 @@ namespace SmallRPGGameTests.EnvironmentTests
 
             world.Observe(mockedOutputHandler);
             mockedOutputHandler.Received(1).Observe("A world where there is nothing");
+        }
+
+        [Fact]
+        public void WhenTheCharacterTriesToFightAnEmptyWorld_NoExceptionsAreThrown()
+        {
+            var world = new World(null);
+            var character = new Character(new Inventory());
+
+            Should.NotThrow(() => world.Fight(character));
         }
     }
 }
