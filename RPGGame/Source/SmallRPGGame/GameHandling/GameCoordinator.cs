@@ -1,7 +1,6 @@
-﻿using SmallRPGGame.GameHandling;
-using SmallRPGGame.GameHandling.Input;
+﻿using SmallRPGGame.GameHandling.Input;
 
-namespace SmallRPGGame
+namespace SmallRPGGame.GameHandling
 {
     public class GameCoordinator
     {

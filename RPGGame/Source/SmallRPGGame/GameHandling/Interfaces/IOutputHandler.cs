@@ -3,6 +3,7 @@
     public interface IOutputHandler
     {
         void Welcome();
+        void Exit();
         void NextAction();
         void Observe(string worldDescription);
     }

@@ -42,13 +42,24 @@ namespace SmallRPGGameTests.GameHandlingTests
         [InlineData(GameAction.Observe, true)]
         [InlineData(GameAction.Forward, true)]
         [InlineData(GameAction.Back, true)]
+        [InlineData(GameAction.Fight, true)]
         [InlineData(GameAction.Unknown, true)]
         [InlineData(GameAction.Exit, false)]
         public void WhenTheGameRunnerReceivesAnAction_ReturnsWhetherTheGameShouldContinue(GameAction givenAction, bool expectedOutcome)
         {
-            bool outcome = _gameRunner.Action(givenAction);
+            _gameRunner.Action(GameAction.Forward);
+
+            var outcome = _gameRunner.Action(givenAction);
 
             outcome.ShouldBe(expectedOutcome);
+        }
+
+        [Fact]
+        public void WhenTheGameRunnerReceivesTheExitAction_CallsTheExitOutputToClose()
+        {
+            _gameRunner.Action(GameAction.Exit);
+
+            _mockedOutputHandler.Received(1).Exit();
         }
     }
 }

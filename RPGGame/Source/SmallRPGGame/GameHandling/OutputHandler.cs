@@ -19,6 +19,11 @@ namespace SmallRPGGame.GameHandling
             _consoleOutput.Write(welcomeText);
         }
 
+        public void Exit()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void NextAction()
         {
             var nextActionText = "What would you like to do next?: ";

@@ -1,6 +1,5 @@
 ﻿using SmallRPGGame.Console;
 using SmallRPGGame.GameHandling;
-using SmallRPGGame.GameHandling.Actions;
 using SmallRPGGame.GameHandling.Input;
 
 namespace SmallRPGGame
@@ -17,6 +16,8 @@ namespace SmallRPGGame
 
             var coordinator = new GameCoordinator(gameRunner, inputHandler);
 
+
+            outputHandler.Welcome();
             coordinator.Play();
         }
 

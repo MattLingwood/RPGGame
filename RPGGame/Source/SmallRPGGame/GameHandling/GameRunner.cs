@@ -44,6 +44,7 @@ namespace SmallRPGGame.GameHandling
                 case GameAction.Observe:
                     break;
                 case GameAction.Exit:
+                    _outputHandler.Exit();
                     return false;
             }
             _currentWorld.Observe(_outputHandler);
