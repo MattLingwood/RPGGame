@@ -1,5 +1,6 @@
 ﻿using System;
 using NSubstitute;
+using Shouldly;
 using SmallRPGGame.Environment;
 using SmallRPGGame.Environment.Monsters;
 using SmallRPGGame.GameHandling.Interfaces;
@@ -33,9 +34,9 @@ namespace SmallRPGGameTests.EnvironmentTests
             _mockedLevelGenerator.Next(1, 10).Returns(level);
             var generatedWorld = _worldHandler.GenerateWorld();
 
-            generatedWorld.Observe(_mockedOutputHandler);
+            var worldObservation = generatedWorld.Observe();
 
-            _mockedOutputHandler.Received(1).Observe($"A world where there is a level {level} {expectedMonster}");
+            worldObservation.ShouldBe($"A world where there is a level {level} {expectedMonster}");
         }
     }
 }

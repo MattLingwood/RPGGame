@@ -3,7 +3,6 @@ using NSubstitute;
 using Shouldly;
 using SmallRPGGame.Environment;
 using SmallRPGGame.Environment.Monsters;
-using SmallRPGGame.GameHandling.Interfaces;
 using SmallRPGGame.Player;
 using Xunit;
 
@@ -15,14 +14,13 @@ namespace SmallRPGGameTests.EnvironmentTests
         public void WhenTheWorldIsObserved_ADescriptionOfTheWorldIsReturned()
         {
             var mockedRandom = Substitute.For<Random>();
-            var mockedOutputHandler = Substitute.For<IOutputHandler>();
             mockedRandom.Next(1, 10).Returns(3);
             var monster = new Monster(MonsterName.Chicken, mockedRandom);
             var world = new World(monster);
 
-            world.Observe(mockedOutputHandler);
+            var worldObservation = world.Observe();
 
-            mockedOutputHandler.Received(1).Observe("A world where there is a level 3 Chicken");
+            worldObservation.ShouldBe("A world where there is a level 3 Chicken");
         }
 
         [Fact]
@@ -43,16 +41,16 @@ namespace SmallRPGGameTests.EnvironmentTests
         public void WhenTheCharacterFightsInTheWorld_IfTheMonsterDies_TheWorldShouldBeEmpty()
         {
             var mockedRandom = Substitute.For<Random>();
-            var mockedOutputHandler = Substitute.For<IOutputHandler>();
             mockedRandom.Next(1, 10).Returns(1);
             var mockedMonster = new Monster(MonsterName.Chicken, mockedRandom);
             var world = new World(mockedMonster);
             var character = new Character(new Inventory());
 
-            world.Fight(character);
+            var fightOutcome = world.Fight(character);
 
-            world.Observe(mockedOutputHandler);
-            mockedOutputHandler.Received(1).Observe("A world where there is nothing");
+            fightOutcome.ShouldBeTrue();
+            var worldObservation = world.Observe();
+            worldObservation.ShouldBe("A world where there is nothing");
         }
 
         [Fact]

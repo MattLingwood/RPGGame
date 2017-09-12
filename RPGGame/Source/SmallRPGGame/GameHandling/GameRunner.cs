@@ -47,7 +47,8 @@ namespace SmallRPGGame.GameHandling
                     _outputHandler.Exit();
                     return false;
             }
-            _currentWorld.Observe(_outputHandler);
+            _outputHandler.Observe(_currentWorld.Observe());
+            ;
 
             return true;
         }
