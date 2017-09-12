@@ -1,5 +1,4 @@
 ﻿using SmallRPGGame.GameHandling;
-using SmallRPGGame.GameHandling.Actions;
 using SmallRPGGame.GameHandling.Input;
 
 namespace SmallRPGGame
@@ -12,8 +11,8 @@ namespace SmallRPGGame
             _inputHandler = inputHandler;
         }
 
-        private GameRunner _gameRunner;
-        private InputHandler _inputHandler;
+        private readonly GameRunner _gameRunner;
+        private readonly InputHandler _inputHandler;
 
         public void Play()
         {
@@ -21,12 +20,8 @@ namespace SmallRPGGame
             while (play)
             {
                 var action = _inputHandler.Next();
-                if (action == GameAction.Exit)
-                {
-                    play = false;
-                }
-
-                _gameRunner.Action(action);
+                
+                play = _gameRunner.Action(action);
             }
         }
     }

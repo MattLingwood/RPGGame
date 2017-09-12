@@ -37,5 +37,18 @@ namespace SmallRPGGameTests.GameHandlingTests
             
             _mockedOutputHandler.Received(1).Observe(Arg.Is<string>(x => x.StartsWith("A world where there is")));
         }
+
+        [Theory]
+        [InlineData(GameAction.Observe, true)]
+        [InlineData(GameAction.Forward, true)]
+        [InlineData(GameAction.Back, true)]
+        [InlineData(GameAction.Unknown, true)]
+        [InlineData(GameAction.Exit, false)]
+        public void WhenTheGameRunnerReceivesAnAction_ReturnsWhetherTheGameShouldContinue(GameAction givenAction, bool expectedOutcome)
+        {
+            bool outcome = _gameRunner.Action(givenAction);
+
+            outcome.ShouldBe(expectedOutcome);
+        }
     }
 }

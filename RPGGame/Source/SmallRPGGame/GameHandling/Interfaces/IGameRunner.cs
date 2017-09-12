@@ -4,6 +4,6 @@ namespace SmallRPGGame.GameHandling.Interfaces
 {
     public interface IGameRunner
     {
-        void Action(GameAction action);
+        bool Action(GameAction action);
     }
 }

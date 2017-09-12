@@ -27,7 +27,7 @@ namespace SmallRPGGame.GameHandling
         private World _previousWorld;
 
 
-        public void Action(GameAction action)
+        public bool Action(GameAction action)
         {
             switch (action)
             {
@@ -43,14 +43,12 @@ namespace SmallRPGGame.GameHandling
                     break;
                 case GameAction.Observe:
                     break;
-                case GameAction.Unknown:
-                    break;
                 case GameAction.Exit:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(action), action, null);
+                    return false;
             }
             _currentWorld.Observe(_outputHandler);
+
+            return true;
         }
 
         private void SwitchWorlds()
