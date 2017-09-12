@@ -39,7 +39,7 @@ namespace SmallRPGGame.GameHandling
                     SwitchWorlds();
                     break;
                 case GameAction.Fight:
-                    _currentWorld.Fight(_character);
+                    HandleFight();
                     break;
                 case GameAction.Observe:
                     break;
@@ -48,9 +48,14 @@ namespace SmallRPGGame.GameHandling
                     return false;
             }
             _outputHandler.Observe(_currentWorld.Observe());
-            ;
 
             return true;
+        }
+
+        private void HandleFight()
+        {
+            var fightOutcome = _currentWorld.Fight(_character);
+            _outputHandler.Fight(fightOutcome);
         }
 
         private void SwitchWorlds()

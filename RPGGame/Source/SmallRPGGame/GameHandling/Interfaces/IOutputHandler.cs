@@ -6,5 +6,6 @@
         void Exit();
         void NextAction();
         void Observe(string worldDescription);
+        void Fight(bool fightOutcome);
     }
 }

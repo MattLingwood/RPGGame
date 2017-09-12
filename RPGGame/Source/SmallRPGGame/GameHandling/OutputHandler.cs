@@ -39,5 +39,10 @@ namespace SmallRPGGame.GameHandling
 
             _consoleOutput.Write(observeText);
         }
+
+        public void Fight(bool fightOutcome)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

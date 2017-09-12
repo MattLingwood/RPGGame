@@ -55,6 +55,14 @@ namespace SmallRPGGameTests.GameHandlingTests
         }
 
         [Fact]
+        public void WhenTheGameRunnerReceivesTheFightAction_CallsOutputToToPrintTheFightOutcome()
+        {
+            _gameRunner.Action(GameAction.Fight);
+
+            _mockedOutputHandler.Received(1).Fight(Arg.Any<bool>());
+        }
+
+        [Fact]
         public void WhenTheGameRunnerReceivesTheExitAction_CallsTheExitOutputToClose()
         {
             _gameRunner.Action(GameAction.Exit);
