@@ -36,5 +36,15 @@ namespace SmallRPGGameTests.GameHandlingTests
 
             _mockedConsole.Received(1).Write(nextActionText);
         }
+
+        [Fact]
+        public void WhenExitIsCalled_TheThanksForPlayingTextIsPrintedToTheConsole()
+        {
+            var nextActionText = "Thanks for playing!";
+
+            _outputHandler.Exit();
+
+            _mockedConsole.Received(1).Write(nextActionText);
+        }
     }
 }

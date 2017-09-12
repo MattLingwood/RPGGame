@@ -21,7 +21,9 @@ namespace SmallRPGGame.GameHandling
 
         public void Exit()
         {
-            throw new System.NotImplementedException();
+            var exitText = "Thanks for playing!";
+
+            _consoleOutput.Write(exitText);
         }
 
         public void NextAction()
