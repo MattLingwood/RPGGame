@@ -18,6 +18,8 @@ namespace SmallRPGGame.GameHandling.Input
                     return GameAction.Observe;
                 case "fight":
                     return GameAction.Fight;
+                case "exit":
+                    return GameAction.Exit;
                 default:
                     return GameAction.Unknown;
             }

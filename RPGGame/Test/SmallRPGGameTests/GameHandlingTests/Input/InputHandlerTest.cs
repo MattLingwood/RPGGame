@@ -13,46 +13,25 @@ namespace SmallRPGGameTests.GameHandlingTests.Input
     {
         private readonly InputHandler _inputHandler;
         private readonly IOutputHandler _mockedOutputHandler;
-        private readonly IGameRunner _mockedGameRunner;
         private readonly IConsole _mockedConsole;
 
         public InputHandlerTest()
         {
             _mockedOutputHandler = Substitute.For<IOutputHandler>();
-            _mockedGameRunner = Substitute.For<IGameRunner>();
             _mockedConsole = Substitute.For<IConsole>();
             _inputHandler = new InputHandler(_mockedOutputHandler, _mockedConsole);
-        }
-
-        [Fact]
-        public void WhenStartIsCalled_CallsWelcomeText_AndThenCallsNextAction()
-        {
-            _inputHandler.Start(_mockedGameRunner);
-
-            _mockedOutputHandler.Received(1).Welcome();
-            _mockedOutputHandler.Received(1).NextAction();
         }
 
         [Fact]
         public void WhenNextIsCalledAfterStart_ParsesUserInput_AndPassesToGameRunner()
         {
             _mockedConsole.ReadLine().Returns("Forward", "Back");
-            _inputHandler.Start(_mockedGameRunner);
 
-            _inputHandler.Next();
+            var firstAction = _inputHandler.Next();
+            var secondAction = _inputHandler.Next();
 
-            _mockedOutputHandler.Received(1).Welcome();
-            _mockedOutputHandler.Received(2).NextAction();
-            _mockedGameRunner.Received(1).Action(GameAction.Forward);
-            _mockedGameRunner.Received(1).Action(GameAction.Back);
-        }
-
-        [Fact]
-        public void WhenNextIsCalledBeforeStart_ThrowsUnstartedGameException()
-        {
-            var exception = Should.Throw<GameNotStartedException>(() => _inputHandler.Next());
-
-            exception.Message.ShouldBe("Game has not been started yet");
+            firstAction.ShouldBe(GameAction.Forward);
+            secondAction.ShouldBe(GameAction.Back);
         }
     }
 }

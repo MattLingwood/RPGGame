@@ -14,6 +14,7 @@ namespace SmallRPGGameTests.GameHandlingTests.Input
         [InlineData("Back", GameAction.Back)]
         [InlineData("Observe", GameAction.Observe)]
         [InlineData("Fight", GameAction.Fight)]
+        [InlineData("Exit", GameAction.Exit)]
         [InlineData("Trash", GameAction.Unknown)]
         public void WhenParsingGivenString_ReturnsExpectedGameAction(string givenString, GameAction expectedGameAction)
         {

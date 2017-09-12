@@ -11,30 +11,17 @@ namespace SmallRPGGameTests.GameHandlingTests
     public class GameRunnerTest
     {
         private readonly GameRunner _gameRunner;
-        private readonly IInputHandler _mockedInputHandler;
         private readonly IOutputHandler _mockedOutputHandler;
 
         public GameRunnerTest()
         {
             _mockedOutputHandler = Substitute.For<IOutputHandler>();
-            _mockedInputHandler = Substitute.For<IInputHandler>();
-            _gameRunner = new GameRunner(_mockedInputHandler, _mockedOutputHandler);
-
-        }
-
-        [Fact]
-        public void WhenTheUserStartsTheGame_GameRunnerSetsUpTheEnvironment()
-        {
-            _gameRunner.InitialiseGame();
-
-            _mockedInputHandler.Received(1).Start(_gameRunner);
+            _gameRunner = new GameRunner(_mockedOutputHandler);
         }
 
         [Fact]
         public void WhenTheUserTriesToMoveForward_AndTheyHaventMovedWorldsYet_TheyAreUnableToMoveAndMustReinputTheirChoice()
         {
-            _gameRunner.InitialiseGame();
-
             var capturedException = Should.Throw<NoWorldToMoveToException>(() =>_gameRunner.Action(GameAction.Back));
 
             capturedException.Message.ShouldBe("There must be a previous world to move to");
@@ -46,11 +33,8 @@ namespace SmallRPGGameTests.GameHandlingTests
         [InlineData(GameAction.Forward)]
         public void WhenTheUserMovesWorld_TheWorldIsAutomaticallyObserved(GameAction givenAction)
         {
-            _gameRunner.InitialiseGame();
-
             _gameRunner.Action(givenAction);
-
-            _mockedInputHandler.Received(1).Start(_gameRunner);
+            
             _mockedOutputHandler.Received(1).Observe(Arg.Is<string>(x => x.StartsWith("A world where there is")));
         }
     }

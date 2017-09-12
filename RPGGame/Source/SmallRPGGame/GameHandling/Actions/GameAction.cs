@@ -6,6 +6,7 @@
         Unknown,
         Back,
         Observe,
-        Fight
+        Fight,
+        Exit
     }
 }

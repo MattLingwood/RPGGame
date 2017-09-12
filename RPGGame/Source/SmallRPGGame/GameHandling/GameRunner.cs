@@ -2,6 +2,7 @@
 using SmallRPGGame.Environment;
 using SmallRPGGame.GameHandling.Actions;
 using SmallRPGGame.GameHandling.Exceptions;
+using SmallRPGGame.GameHandling.Input;
 using SmallRPGGame.GameHandling.Interfaces;
 using SmallRPGGame.Player;
 
@@ -9,28 +10,22 @@ namespace SmallRPGGame.GameHandling
 {
     public class GameRunner : IGameRunner
     {
-        public GameRunner(IInputHandler inputHandler, IOutputHandler outputHandler)
+        public GameRunner(IOutputHandler outputHandler)
         {
-            _inputHandler = inputHandler;
             _outputHandler = outputHandler;
-        }
 
-        private readonly IInputHandler _inputHandler;
-        private readonly IOutputHandler _outputHandler;
-        private WorldHandler _worldHandler;
-        private Character _character;
-        private World _currentWorld;
-        private World _previousWorld;
-
-        public void InitialiseGame()
-        {
             _worldHandler = new WorldHandler(new Random());
             _character = new Character(new Inventory());
 
             _currentWorld = _worldHandler.GenerateWorld();
-            
-            _inputHandler.Start(this);
         }
+
+        private readonly IOutputHandler _outputHandler;
+        private readonly WorldHandler _worldHandler;
+        private readonly Character _character;
+        private World _currentWorld;
+        private World _previousWorld;
+
 
         public void Action(GameAction action)
         {
@@ -48,9 +43,14 @@ namespace SmallRPGGame.GameHandling
                     break;
                 case GameAction.Observe:
                     break;
+                case GameAction.Unknown:
+                    break;
+                case GameAction.Exit:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(action), action, null);
             }
             _currentWorld.Observe(_outputHandler);
-            _inputHandler.Next();
         }
 
         private void SwitchWorlds()
